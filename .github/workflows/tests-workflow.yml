@@ -33,3 +33,6 @@ jobs:
       
     - name: Run TestConosle Tests
       run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Tests\bin\Release\net46\TestConsole.Tests.dll
+
+    - name: Run TestConosle Tests2
+      run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Test2\bin\Release\net46\TestConsole.Test2.dll
