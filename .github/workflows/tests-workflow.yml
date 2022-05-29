@@ -32,7 +32,10 @@ jobs:
       run: msbuild.exe TestConsole.sln /p:Configuration=Release
       
     - name: Run TestConsole Tests
-      run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover
+      run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Tests\bin\Release\net46\TestConsole.Tests.dll -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover
+
+    - name: Run TestConsole Tests2
+      run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Test2\bin\Release\net46\TestConsole.Test2.dll
       
     - name: Create Test Coverage Badge
       uses: simon-k/dotnet-code-coverage-badge@v1.0.0
@@ -40,7 +43,7 @@ jobs:
       with:
         label: Unit Test Coverage
         color: brightgreen
-        path: TestConsole.Tests/TestResults/coverage.opencover.xml
+        path: TestConsole.Tests/TestResults/TestResult.xml
         gist-filename: "code-coverage.json"
         gist-id: "c2e864100c1f49050cb9bd68dbfa40e5"
         gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }}
