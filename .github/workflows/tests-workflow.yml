@@ -32,10 +32,7 @@ jobs:
       run: msbuild.exe TestConsole.sln /p:Configuration=Release
       
     - name: Run TestConsole Tests
-      run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Tests\bin\Release\net46\TestConsole.Tests.dll -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover
-
-    - name: Run TestConsole Tests2
-      run: ./NUnit.ConsoleRunner.3.13.0/tools/nunit3-console.exe TestConsole.Test2\bin\Release\net46\TestConsole.Test2.dll
+      run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover
       
     - name: Create Test Coverage Badge
       uses: simon-k/dotnet-code-coverage-badge@v1.0.0
