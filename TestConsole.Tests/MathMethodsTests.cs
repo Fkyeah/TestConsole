@@ -1,8 +1,10 @@
 using NUnit.Framework;
+using System.Diagnostics.CodeAnalysis;
 using TestConsole.Main;
 
 namespace TestConsole.Tests
 {
+    [ExcludeFromCodeCoverage]
     public class Tests
     {
         [SetUp]
